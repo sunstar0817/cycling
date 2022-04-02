@@ -31,6 +31,7 @@
                   <h2>説明</h2>
                   <input class="form-control" value="{{ $user->my_bicycle }}">
                   <a href="{{ action('CyclingController@edit') }}"><button class="user-btn">ユーザー登録内容の編集</button></a>
+                  <a href="/posts">戻る</a>
                 </div>
               </div>
             </div>
