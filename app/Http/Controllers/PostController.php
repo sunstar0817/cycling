@@ -13,15 +13,15 @@ class PostController extends Controller
 {
     public function posts(Post $post)
     {
-        return view('posts')->with(['posts' => $post->get()]);
+        return view('posts/posts')->with(['posts' => $post->get()]);
     }
     public function show(Post $post)
     {
-        return view('show')->with(['post' => $post]);
+        return view('posts/show')->with(['post' => $post]);
     }
     public function create(Category $category)
     {
-        return view('create')->with(['categories' => $category->get()]);
+        return view('posts/create')->with(['categories' => $category->get()]);
     }
     public function store (Request $request, Post $post)
     {

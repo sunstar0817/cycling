@@ -41,4 +41,8 @@ class User extends Authenticatable
     { //1対多の「多」側なので複数形
         return $this->hasMany('App\Post');
     }
+    public function events() 
+    { //1対多の「多」側なので複数形
+        return $this->hasMany('App\Event');
+    }
 }

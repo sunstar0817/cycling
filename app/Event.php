@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Event extends Model
 {
     protected $fullable = [
-      "title", "body", "user_id", "category_id", 
+      "title", "body", "user_id", "area_id", 
     ];
     
-    public function category()
+    public function area()
     {
-        return $this->belongsto('App\Category');
+        return $this->belongsto('App\Area');
     }
     
     public function user() 

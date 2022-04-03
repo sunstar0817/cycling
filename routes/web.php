@@ -27,6 +27,15 @@ Route::get('/posts/create', 'PostController@create');
 Route::post('/posts', 'PostController@store');
 //投稿詳細画面表示
 Route::get('/posts/{post}', 'PostController@show');
+//イベント画面表示
+Route::get('/events', 'EventController@events');
+//イベント作成画面表示
+Route::get('/events/create', 'EventController@create');
+// イベント処理 
+Route::post('/events', 'EventController@store');
+//イベント詳細画面表示
+Route::get('/events/{post}', 'EventController@show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 });
 Auth::routes();
