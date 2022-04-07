@@ -22,6 +22,7 @@
             {{ $event->area->name }}
             <h2 class='title'>
             <a href="/events/{{ $event->id }}">{{ $event->title }}</a>
+            <img src="{{ $event->image }}">
             </h2>
             <p class='body'>{{ $event->body}}</p>
           </div>

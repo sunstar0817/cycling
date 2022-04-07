@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //追加
+use Storage;
 
 class CyclingController extends Controller
 {
@@ -28,12 +29,13 @@ class CyclingController extends Controller
     //userデータの保存
     public function update(Request $request) 
     {
-    $user_form = $request->all();
     $user = Auth::user();
     //不要な「_token」の削除
-    unset($user_form['_token']);
+    unset($request['_token']);
     //保存
-    $user->fill($user_form)->save();
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->save();
     //リダイレクト
     return redirect('user');
     }

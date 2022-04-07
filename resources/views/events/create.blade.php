@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1>イベント作成画面</h1>
-        <form action="/events" method=POST>
+        <form action="/events" method=POST enctype="multipart/form-data">
         @csrf
         <div class="title">
             <h2>見出し</h2>
@@ -29,6 +29,7 @@
                 @endforeach
             </select>
         </div>
+        <input type="file" name="image">
         <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/events">戻る</a>]</div>

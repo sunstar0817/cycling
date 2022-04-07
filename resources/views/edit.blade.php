@@ -16,7 +16,7 @@
       <div class="card">
         <div class="card-header">ユーザー登録内容の変更</div>
         <div class="card-body">
-          <form method="POST" action="/edit">
+          <form method="POST" action="/edit" enctype="multipart/form-data">
               <h2>氏名</h2>
               <input type="text" name="name" class="form-control" value="{{ $user->name }}">
               <h2>email</h2>
