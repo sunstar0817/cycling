@@ -21,8 +21,12 @@
             {{ $event->user->name}}
             {{ $event->area->name }}
             <h2 class='title'>
+            <div>
             <a href="/events/{{ $event->id }}">{{ $event->title }}</a>
-            <img src="{{ $event->image }}">
+            </div>
+            @if($event->image === null)
+            @else<img src="{{ $event->image }}" style="width: 600px;">
+            @endif
             </h2>
             <p class='body'>{{ $event->body}}</p>
           </div>
