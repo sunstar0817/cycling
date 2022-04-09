@@ -14,16 +14,25 @@
       [<a href='/user'>profile</a>]
       [<a href='/posts'>サイクリング情報</a>]
       [<a href='/events'>イベント情報</a>]
+      [<a fref='/events'>チャット</a>]
       [<a href='/posts/create'>create</a>]
       <div class='posts'>
         @foreach ($posts as $post)
-          <div class='post'>
-            {{ $post->user->name}}
-            {{ $post->category->category }}
-            <h2 class='title'>
-            <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-            </h2>
-            <p class='body'>{{ $post->body}}</p>
+          <div class='event'>
+              <p>{{ $post->category->category }}</p>
+              <p>ユーザのアイコン</p>
+              <p>{{ $post->user->name}}</p>
+            <div>
+              <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+            </div>
+            <div>
+              @if($post->image === null)
+              @else<img src="{{ $post->image }}">
+              @endif
+            </div>
+            <div>
+              <p class='body'>{{ $post->body}}</p>
+            </div>
           </div>
         @endforeach
       </div>

@@ -1,0 +1,35 @@
+body {
+    background-color: #f0f0f0;
+}
+
+header h1 {
+    color: #2e99a9;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.selection a {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.event {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.event h2 {
+    background-color: #20B2AA;
+    text-align: center; 
+    padding: 10px;
+    color: #fff;
+}
+
+img {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
