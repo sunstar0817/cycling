@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     public function posts(Post $post)
     {
-        return view('posts/posts')->with(['posts' => $post->get()]);
+        return view('posts/posts')->with(['posts' => $post->getPaginateByLimit()]);
     }
     public function show(Post $post)
     {

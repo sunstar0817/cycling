@@ -24,10 +24,12 @@
                   <input class="form-control" value="{{ $user->name }}">
                   <h2>email</h2>
                   <input class="form-control" value="{{ $user->email }}">
-                  <h2>年齢</h2>
+                  <h2>誕生日</h2>
                   <input class="form-control" value="{{ $user->age }}">
                   <h2>性別</h2>
-                  <input class="form-control" value="{{ $user->sex }}">
+                  @if($user->sex_id === null)
+                  @else <input class="form-control" value="{{ $user->sex->sex }}"}>
+                  @endif
                   <h2>説明</h2>
                   <input class="form-control" value="{{ $user->my_bicycle }}">
                   <a href="{{ action('CyclingController@edit') }}"><button class="user-btn">ユーザー登録内容の編集</button></a>

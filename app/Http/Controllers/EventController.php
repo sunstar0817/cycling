@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     public function events(Event $event)
     {
-        return view('events/events')->with(['events' => $event->get()]);
+        return view('events/events')->with(['events' => $event->getPaginateByLimit()]);
     }
     public function show(Event $event)
     {
@@ -30,12 +30,15 @@ class EventController extends Controller
         $event->body = $request->event_body;
         $event->user_id = Auth::id();
         $event->area_id = $request->area_id;
+        if($request->file('image') === null){
+        }else{
         //s3アップロード開始
         $image = $request->file('image');
         // バケットの`myprefix`フォルダへアップロード
         $path = Storage::disk('s3')->putFile('/', $image, 'public');
         // アップロードした画像のフルパスを取得
         $event->image = Storage::disk('s3')->url($path);
+        };
         $event->save();
         
         return redirect('/events');

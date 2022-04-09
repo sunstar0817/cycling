@@ -28,6 +28,9 @@
           </div>
         @endforeach
       </div>
+      <div class='paginate'>
+            {{ $events->links() }}
+      </div>
     </body>
 </html>
 @endsection

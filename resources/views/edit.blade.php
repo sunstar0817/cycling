@@ -21,6 +21,16 @@
               <input type="text" name="name" class="form-control" value="{{ $user->name }}">
               <h2>email</h2>
               <input type="text" name="email" class="form-control" value="{{ $user->email }}">
+              <h2>年齢</h2>
+              <input type="date" name="birthday" class="form-control" value="{{ $user->age }}">
+              <div class="category">
+              <h2>性別</h2>
+              <select name="sex">
+                @foreach($sexes as $sex)
+                    <option value="{{$sex->id}}">{{$sex->sex}}</option>
+                @endforeach
+              </select>
+              </div>
               <h2>説明</h2>
               <input type="text" name="my_bicycle" class="form-control" value="{{ $user->my_bicycle }}">
               <button type="submit" class="user-btn">変更</button>

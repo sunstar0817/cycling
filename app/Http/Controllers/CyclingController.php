@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+use App\Sex;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //追加
 use Storage;
@@ -21,9 +22,9 @@ class CyclingController extends Controller
     }
 
     //ユーザ編集
-    public function edit()
+    public function edit(Sex $sex)
     {
-    return view('edit', ['user' => Auth::user() ]);
+    return view('edit', ['user' => Auth::user() ])->with(['sexes' => $sex->get()]);
     }
 
     //userデータの保存
@@ -35,6 +36,8 @@ class CyclingController extends Controller
     //保存
     $user->name = $request->name;
     $user->email = $request->email;
+    $user->age = $request->birthday;
+    $user->sex_id = $request->sex;
     $user->save();
     //リダイレクト
     return redirect('user');

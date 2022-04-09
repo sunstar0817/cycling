@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'age', 'sex', 'image', 'bicycle_image', 'my_bicycle'
+        'name', 'email', 'password', 'age', 'sex_id', 'image', 'bicycle_image', 'my_bicycle'
     ];
 
     /**
@@ -44,5 +44,9 @@ class User extends Authenticatable
     public function events() 
     { //1対多の「多」側なので複数形
         return $this->hasMany('App\Event');
+    }
+    public function sex()
+    {
+        return $this->belongsto('App\Sex');
     }
 }
