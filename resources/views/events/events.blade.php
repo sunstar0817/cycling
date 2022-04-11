@@ -48,10 +48,12 @@
                       <div class='event'>
                               <h2>{{ $event->area->name }}のサイクリング</h2>
                               <div class="row">
-                                  <div class="col-sm-3 text-center">
-                                      <p>ユーザのアイコン</p>
+                                  <div class="col-sm-2 text-center">
+                                      <div class='icon'>
+                                            <img class="rounded-circle" src="https://cycling1.s3.ap-northeast-1.amazonaws.com/icon/icon_144010_256.png">
+                                      </div>
                                   </div>
-                                  <div class="col-sm-9 text-left">
+                                  <div class="col-sm-10 text-left">
                                       <h4>{{ $event->user->name}}</h4>
                                   </div>
                               </div>

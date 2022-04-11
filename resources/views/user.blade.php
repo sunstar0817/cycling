@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
         <div class="container m-5">
@@ -17,6 +19,9 @@
                 <div class="card-body">
                   <div class="card-header">ユーザー登録内容</div>
                   <h2>アイコン</h2>
+                  <div class='icon'>
+                      <img class="rounded-circle" src="https://cycling1.s3.ap-northeast-1.amazonaws.com/icon/icon_144010_256.png">
+                  </div>
                   {{Auth::user()->image}}
                   <h2>バイク写真</h2>
                   {{Auth::user()->bicycle_image}}
