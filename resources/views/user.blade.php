@@ -33,6 +33,7 @@
                   <input class="form-control" value="{{ $user->age }}">
                   <h2>性別</h2>
                   @if($user->sex_id === null)
+                  <p>未設定</p>
                   @else <input class="form-control" value="{{ $user->sex->sex }}"}>
                   @endif
                   <h2>説明</h2>

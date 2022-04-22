@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1>投稿作成画面</h1>
-        <form action="/posts" method=POST>
+        <form action="/posts" method=POST enctype="multipart/form-data">
         @csrf
         <div class="title">
             <h2>見出し</h2>
@@ -29,7 +29,8 @@
                 @endforeach
             </select>
         </div>
-        <input type="submit" value="保存"/>
+            <input type="file" name="image">
+            <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/posts">戻る</a>]</div>
     </body>

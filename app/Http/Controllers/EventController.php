@@ -35,7 +35,7 @@ class EventController extends Controller
         //s3アップロード開始
         $image = $request->file('image');
         // バケットの`myprefix`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('/', $image, 'public');
+        $path = Storage::disk('s3')->putFile('event', $image, 'public');
         // アップロードした画像のフルパスを取得
         $event->image = Storage::disk('s3')->url($path);
         };

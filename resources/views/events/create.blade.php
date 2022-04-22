@@ -29,8 +29,8 @@
                 @endforeach
             </select>
         </div>
-        <input type="file" name="image">
-        <input type="submit" value="保存"/>
+            <input type="file" name="image">
+            <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/events">戻る</a>]</div>
     </body>
