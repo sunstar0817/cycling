@@ -38,6 +38,7 @@ class CyclingController extends Controller
     $user->email = $request->email;
     $user->age = $request->birthday;
     $user->sex_id = $request->sex;
+    $user->my_bicycle = $request->my_bicycle;
     $user->save();
     //リダイレクト
     return redirect('user');

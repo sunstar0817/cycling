@@ -26,7 +26,6 @@
               <div class="category">
               <h2>性別</h2>
               <select name="sex">
-                    <option value="{{$user->sex->id}}">{{$user->sex->sex}}</option>
                 @foreach($sexes as $sex)
                     <option value="{{$sex->id}}">{{$sex->sex}}</option>
                 @endforeach
