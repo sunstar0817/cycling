@@ -37,5 +37,9 @@ Route::post('/events', 'EventController@store');
 Route::get('/events/{post}', 'EventController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
+//チャット
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
 });
 Auth::routes();

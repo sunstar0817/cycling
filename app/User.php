@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->belongsto('App\Sex');
     }
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

@@ -10,9 +10,10 @@
     "require": {
         "php": "^8.0",
         "doctrine/dbal": "2.*",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "9.9",
         "laravel/tinker": "^2.5",
-        "league/flysystem-aws-s3-v3": "^2.3.1"
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
