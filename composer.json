@@ -12,13 +12,13 @@
         "doctrine/dbal": "2.*",
         "laravel/framework": "9.9",
         "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.4",
         "league/flysystem-aws-s3-v3": "^3.0",
         "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
-        "laravel/ui": "^3.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.3.3"
