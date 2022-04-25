@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fullable = [
+    protected $fillable = [
       "title", "body", "user_id", "area_id", 
     ];
     
@@ -25,4 +25,9 @@ class Event extends Model
     { 
         return $this->belongsTo('App\User');
     }
+        public function groups() 
+    { 
+        return $this->belongsToMany('App\Group');
+    }
+
 }

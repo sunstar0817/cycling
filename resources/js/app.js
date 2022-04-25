@@ -22,8 +22,8 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
+Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
+Vue.component('chat-form', require('./components/ChatForm.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -41,8 +41,9 @@ const app = new Vue({
     created() {
         this.fetchMessages();
         
-        Echo.private('chat')
+        Echo.channel('chat')
     .listen('MessageSent', (e) => {
+        console.log(e);
     this.messages.push({
         message: e.message.message,
         user: e.user

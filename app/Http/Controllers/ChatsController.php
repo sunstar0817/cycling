@@ -44,6 +44,8 @@ class ChatsController extends Controller
     $message = $user->messages()->create([
        'message' => $request->input('message')
      ]);
+     //オープンソースからプライベートに！
+     //->toOthers()が変わる！
      broadcast(new MessageSent($user, $message))->toOthers();
      return ['status' => 'Message Sent!'];
     }

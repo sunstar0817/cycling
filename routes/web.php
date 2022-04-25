@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +39,10 @@ Route::get('/events/{post}', 'EventController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 //チャット
-Route::get('/', 'ChatsController@index');
+Route::get('/chat', 'ChatsController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
+//申請
+Route::post('/groups', 'GroupController@create');
 });
 Auth::routes();

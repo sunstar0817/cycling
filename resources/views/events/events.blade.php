@@ -69,7 +69,12 @@
                               <p class='body'>{{ $event->body}}</p>
                         </div>
                               @if($event->user_id === Auth::user()->id)
-                              @else<p class="border text-center">走りたいボタン</p>
+                              @else
+                              <form action="/groups" method="POST">
+                                  @csrf
+                                  <button type="submit" name="add">走りたい</button>
+                                  <input type="hidden" name="event_id" value="{{ $event->id }}"/>
+                            　</form>
                               @endif
                       </div>
                    @endforeach
