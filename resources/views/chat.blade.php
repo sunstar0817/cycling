@@ -30,6 +30,9 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <a href="/groupchat">戻る</a>
+    </div>
     </body>
 </html>
 @endsection

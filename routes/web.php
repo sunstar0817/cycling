@@ -44,5 +44,10 @@ Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
 //申請
 Route::post('/groups', 'GroupController@create');
+Route::get('/', 'PostController@home');
+Route::get('/confirmation', 'GroupController@confirmation');
+Route::post('/yes/{group}', 'GroupController@yes');
+Route::post('/no/{group}', 'GroupController@no');
+Route::get('/groupchat', 'GroupController@groupchat');
 });
 Auth::routes();

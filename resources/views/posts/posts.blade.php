@@ -19,7 +19,7 @@
                     <h1>サイクリング情報</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <p>[承認]</p>
+                    [<a href='/confirmation'>承認</a>]
                     [<a href='/user'>profile</a>]
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     [<a href='/events'>イベント情報</a>]
                 </div>
                 <div class="col-sm-4 text-center">
-                    [<a fref='/posts'>チャット</a>]
+                    [<a href='/groupchat'>チャット</a>]
                 </div>
             </div>
                 <hr>

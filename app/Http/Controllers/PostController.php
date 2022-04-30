@@ -43,4 +43,8 @@ class PostController extends Controller
         
         return redirect('/posts');
     }
+    public function home(Post $post)
+    {
+        return view('posts/posts')->with(['posts' => $post->getPaginateByLimit()]);
+    }
 }

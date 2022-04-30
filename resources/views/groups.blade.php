@@ -15,7 +15,7 @@
         <header class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 text-center">
-                    <h1>イベント情報</h1>
+                    <h1>チャット</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     [<a href='/confirmation'>承認</a>]
@@ -38,15 +38,16 @@
             </div>
                 <hr>
                 <div class="border-bottom text-center">
-                    [<a href='/events/create'>create</a>]
+                    [<a href='/posts'>戻る</a>]
                 </div>
         </section>
-        <div class="container">
+         <div class="container">
             <section class="information">
                 <div class='events'>
                     @foreach ($events as $event)
+                    @if($event->user_id === Auth::id())
                       <div class='event'>
-                              <h2>{{ $event->area->name }}のサイクリング</h2>
+                              <h2><a href='/chat'>{{ $event->title }}</a></h2>
                               <div class="row">
                                   <div class="col-sm-2 text-center">
                                       <div class='icon'>
@@ -54,38 +55,37 @@
                                       </div>
                                   </div>
                                   <div class="col-sm-10 text-left">
-                                      <h4>{{ $event->user->name}}</h4>
+                                      <h4>主催者：{{ $event->user->name }}</h4>
                                   </div>
                               </div>
-                          <div class="border-top">
-                              <h3><a href="/events/{{ $event->id }}">{{ $event->title }}</a></h3>
-                          </div>
-                          <div>
-                              @if($event->image === null)
-                              @else<img src="{{ $event->image }}">
-                              @endif
-                          </div>
-                          <div>
-                              <p class='body'>{{ $event->body}}</p>
-                        </div>
-                              @if($event->user_id === Auth::user()->id)
-                              @else
-                              <form action="/groups" method="POST">
-                                  @csrf
-                                  <button type="submit" name="add">走りたい</button>
-                                  <input type="hidden" name="event_id" value="{{ $event->id }}"/>
-                            　</form>
-                              @endif
                       </div>
+                    @else
+                    @endif
+                   @endforeach
+                    @foreach ($groups as $group)
+                    @if($group->event->user_id === Auth::id())
+                    @else
+                    @if($group->confirmation === '2' )
+                      <div class='event'>
+                              <h2><a href='/chat'>{{ $group->event->title }}</a></h2>
+                              <div class="row">
+                                  <div class="col-sm-2 text-center">
+                                      <div class='icon'>
+                                            <img class="rounded-circle" src="https://cycling1.s3.ap-northeast-1.amazonaws.com/icon/icon_144010_256.png">
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-10 text-left">
+                                      <h4>主題者：{{ $group->event->user->name }}</h4>
+                                  </div>
+                              </div>
+                      </div>
+                    @else
+                    @endif
+                    @endif
                    @endforeach
                 </div>
             </section>
         </div>
-        <section class="container">
-            <div class="d-flex justify-content-center">
-                {{ $events->links() }}
-            </div>
-        </section>
     </body>
 </html>
 @endsection

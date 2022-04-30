@@ -9,12 +9,12 @@ class Group extends Model
     protected $fillable = [
       'event_id', 'user_id', 'confirmation', 
     ];
-    public function users() 
+    public function user() 
     { 
-        return $this->belongsToMany('App\User');
+        return $this->belongsTo('App\User');
     }
-    public function events() 
+    public function event() 
     { 
-        return $this->belongsToMany('App\Event');
+        return $this->belongsTo('App\Event');
     }
 }

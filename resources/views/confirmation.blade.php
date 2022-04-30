@@ -15,7 +15,7 @@
         <header class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 text-center">
-                    <h1>イベント情報</h1>
+                    <h1>承認</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     [<a href='/confirmation'>承認</a>]
@@ -38,15 +38,17 @@
             </div>
                 <hr>
                 <div class="border-bottom text-center">
-                    [<a href='/events/create'>create</a>]
+                    [<a href='/posts'>戻る</a>]
                 </div>
         </section>
-        <div class="container">
+         <div class="container">
             <section class="information">
                 <div class='events'>
-                    @foreach ($events as $event)
+                    @foreach ($groups as $group)
+                    @if($group->event->user_id === Auth::id())
+                    @if($group->confirmation === '1' )
                       <div class='event'>
-                              <h2>{{ $event->area->name }}のサイクリング</h2>
+                              <h2>{{ $group->event->title }}</h2>
                               <div class="row">
                                   <div class="col-sm-2 text-center">
                                       <div class='icon'>
@@ -54,38 +56,36 @@
                                       </div>
                                   </div>
                                   <div class="col-sm-10 text-left">
-                                      <h4>{{ $event->user->name}}</h4>
+                                      <h4>{{ $group->user->name }}さんが走りたい</h4>
                                   </div>
                               </div>
                           <div class="border-top">
-                              <h3><a href="/events/{{ $event->id }}">{{ $event->title }}</a></h3>
-                          </div>
-                          <div>
-                              @if($event->image === null)
-                              @else<img src="{{ $event->image }}">
-                              @endif
-                          </div>
-                          <div>
-                              <p class='body'>{{ $event->body}}</p>
-                        </div>
-                              @if($event->user_id === Auth::user()->id)
-                              @else
-                              <form action="/groups" method="POST">
+                            <div class="row">
+                              <div class="col-sm-6 text-center">
+                              <form action="/yes/{{$group->id}}" method="POST">
                                   @csrf
-                                  <button type="submit" name="add">走りたい</button>
-                                  <input type="hidden" name="event_id" value="{{ $event->id }}"/>
+                                  <button type="submit" name="add">承認</button>
+                                  <input type="hidden" name="confirmation" value='2'/>
                             　</form>
-                              @endif
+                            　</div>
+                            　<div class="col-sm-6 text-center">
+                            　<form action="/no/{{$group->id}}" method="POST">
+                                  @csrf
+                                  <button type="submit" name="add">非承認</button>
+                                  <input type="hidden" name="confirmation" value='3'/>
+                            　</form>
+                            　</div>
+                            </div>
+                          </div>
                       </div>
+                    @else
+                    @endif
+                    @else
+                    @endif
                    @endforeach
                 </div>
             </section>
         </div>
-        <section class="container">
-            <div class="d-flex justify-content-center">
-                {{ $events->links() }}
-            </div>
-        </section>
     </body>
 </html>
 @endsection
