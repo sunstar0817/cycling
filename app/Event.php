@@ -29,5 +29,10 @@ class Event extends Model
     { 
          return $this->hasMany('App\Group');
     }
+    //追加
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 
 }

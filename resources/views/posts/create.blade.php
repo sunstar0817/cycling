@@ -8,8 +8,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     </head>
     <body>
+        <div class="container">
+        <div class="card">
         <h1>投稿作成画面</h1>
         <form action="/posts" method=POST enctype="multipart/form-data">
         @csrf
@@ -33,6 +36,8 @@
             <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/posts">戻る</a>]</div>
+        </div>
+        </div>
     </body>
 </html>
 @endsection

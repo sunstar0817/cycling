@@ -59,7 +59,7 @@
                                   </div>
                               </div>
                           <div class="border-top">
-                              <h3><a href="/events/{{ $post->id }}">{{ $post->title }}</a></h3>
+                              <h3>{{ $post->title }}</h3>
                           </div>
                           <div>
                               @if($post->image === null)

@@ -17,7 +17,7 @@ class CreateGroupsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('event_id');
             $table->integer('user_id');
-            $table->text('confirmation')->nullable;
+            $table->text('confirmation')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

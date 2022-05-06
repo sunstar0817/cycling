@@ -58,7 +58,7 @@
                                   </div>
                               </div>
                           <div class="border-top">
-                              <h3><a href="/events/{{ $event->id }}">{{ $event->title }}</a></h3>
+                              <h3>{{ $event->title }}</h3>
                           </div>
                           <div>
                               @if($event->image === null)
