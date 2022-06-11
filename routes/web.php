@@ -49,5 +49,8 @@ Route::get('/confirmation', 'GroupController@confirmation');
 Route::post('/yes/{group}', 'GroupController@yes');
 Route::post('/no/{group}', 'GroupController@no');
 Route::get('/groupchat', 'GroupController@groupchat');
+
+Route::get('/groupchat/{group}', 'GroupController@fetchMessages');
+Route::post('/groupchat/{group}', 'GroupController@sendMessage');
 });
 Auth::routes();

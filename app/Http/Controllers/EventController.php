@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Area;
 use App\Event;
+use App\Group;
 use Storage;
 use Auth;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class EventController extends Controller
     {
         return view('events/create')->with(['areas' => $area->get()]);
     }
-    public function store (Request $request, Event $event)
+    public function store (Request $request, Event $event, Group $group)
     {
         $input = $request['event'];
         $event->title = $request->event_title;
@@ -40,6 +41,11 @@ class EventController extends Controller
         $event->image = Storage::disk('s3')->url($path);
         };
         $event->save();
+        Group::create([
+            'event_id' => $event['id'],
+            'user_id' => Auth::id(),
+            'confirmation' => '2'
+        ]);
         
         return redirect('/events');
     }

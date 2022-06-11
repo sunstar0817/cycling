@@ -27,18 +27,38 @@
         <section class="selection">
             <div class="row">
                 <div class="col-sm-4 text-center">
-                    [<a href='/posts'>サイクリング情報</a>]
+                    <a href='/posts' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>サイクリング情報</span>
+                    </a>
                 </div>
                 <div class="col-sm-4 text-center">
-                    [<a href='/events'>イベント情報</a>]
+                    <a href='/events' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>イベント情報</span>
+                    </a>
                 </div>
                 <div class="col-sm-4 text-center">
-                    [<a href='/groupchat'>チャット</a>]
+                    <a href='/groupchat' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>チャット</span>
+                    </a>
                 </div>
             </div>
-                <hr>
+            <hr>
                 <div class="border-bottom text-center">
-                    [<a href='/events/create'>create</a>]
+                    <a href='/events/create' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>イベントを作る</span>
+                    </a>
                 </div>
         </section>
         <div class="container">
@@ -72,7 +92,9 @@
                               @else
                               <form action="/groups" method="POST">
                                   @csrf
+                                  <div  class="border-top" align="center">
                                   <button type="submit" name="add">走りたい</button>
+                                  </div>
                                   <input type="hidden" name="event_id" value="{{ $event->id }}"/>
                             　</form>
                               @endif
@@ -83,7 +105,7 @@
         </div>
         <section class="container">
             <div class="d-flex justify-content-center">
-                {{ $events->links() }}
+                {{ $events->links('pagination::bootstrap-4') }}
             </div>
         </section>
     </body>

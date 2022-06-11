@@ -27,47 +27,38 @@
         <section class="selection">
             <div class="row">
                 <div class="col-sm-4 text-center">
-                    [<a href='/posts'>サイクリング情報</a>]
+                    <a href='/posts' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>サイクリング情報</span>
+                    </a>
                 </div>
                 <div class="col-sm-4 text-center">
-                    [<a href='/events'>イベント情報</a>]
+                    <a href='/events' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>イベント情報</span>
+                    </a>
                 </div>
                 <div class="col-sm-4 text-center">
-                    [<a href='/groupchat'>チャット</a>]
+                    <a href='/groupchat' class="btn btn-svg">
+                    <svg>
+                    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+                    </svg>
+                    <span>チャット</span>
+                    </a>
                 </div>
             </div>
-                <hr>
-                <div class="border-bottom text-center">
-                    [<a href='/posts'>戻る</a>]
-                </div>
         </section>
          <div class="container">
             <section class="information">
                 <div class='events'>
-                    @foreach ($events as $event)
-                    @if($event->user_id === Auth::id())
-                      <div class='event'>
-                              <h2><a href='/chat'>{{ $event->title }}</a></h2>
-                              <div class="row">
-                                  <div class="col-sm-2 text-center">
-                                      <div class='icon'>
-                                            <img class="rounded-circle" src="https://cycling1.s3.ap-northeast-1.amazonaws.com/icon/icon_144010_256.png">
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-10 text-left">
-                                      <h4>主催者：{{ $event->user->name }}</h4>
-                                  </div>
-                              </div>
-                      </div>
-                    @else
-                    @endif
-                   @endforeach
                     @foreach ($groups as $group)
-                    @if($group->event->user_id === Auth::id())
-                    @else
                     @if($group->confirmation === '2' )
                       <div class='event'>
-                              <h2><a href='/chat'>{{ $group->event->title }}</a></h2>
+                              <h2><a href="/groupchat/{{ $group->event->id}}">{{ $group->event->title }}</a></h2>
                               <div class="row">
                                   <div class="col-sm-2 text-center">
                                       <div class='icon'>
@@ -81,11 +72,15 @@
                       </div>
                     @else
                     @endif
-                    @endif
                    @endforeach
                 </div>
             </section>
         </div>
+        <section class="container">
+            <div class="d-flex justify-content-center">
+                {{ $groups->links('pagination::bootstrap-4') }}
+            </div>
+        </section>
     </body>
 </html>
 @endsection
