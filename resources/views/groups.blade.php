@@ -56,6 +56,7 @@
             <section class="information">
                 <div class='events'>
                     @foreach ($groups as $group)
+                    @if($group->user_id === Auth::user()->id)
                     @if($group->confirmation === '2' )
                       <div class='event'>
                               <h2><a href="/groupchat/{{ $group->event->id}}">{{ $group->event->title }}</a></h2>
@@ -66,10 +67,12 @@
                                       </div>
                                   </div>
                                   <div class="col-sm-10 text-left">
-                                      <h4>主題者：{{ $group->event->user->name }}</h4>
+                                      <h4>主催者：{{ $group->event->user->name }}</h4>
                                   </div>
                               </div>
                       </div>
+                    @else
+                    @endif
                     @else
                     @endif
                    @endforeach
@@ -77,9 +80,6 @@
             </section>
         </div>
         <section class="container">
-            <div class="d-flex justify-content-center">
-                {{ $groups->links('pagination::bootstrap-4') }}
-            </div>
         </section>
     </body>
 </html>
